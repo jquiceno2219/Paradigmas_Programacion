@@ -1,9 +1,5 @@
 package Ejercicio_4;
 
-//import reactor.core.publisher.Flux;
-//import reactor.core.publisher.Mono;
-//import reactor.util.function.Tuple2;
-
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Map;
@@ -17,9 +13,22 @@ public class SistemaSeguimientoPaquetes {
         this.paquetes = new HashMap<>();
     }
 
- /*  public Mono<Paquete> enviarPaquete(String id) {
-        Paquete paquete = new Paquete(id);
-        paquetes.put(id, paquete);
-        return Mono.just(paquete);
-    }*/
+    public void agregarPaquete(String id) {
+        paquetes.put(id, new Paquete(id));
+    }
+
+    public void updatePaquete(String id, Estado estado, String ubicacion) {
+        Paquete pkg = paquetes.get(id);
+        if (pkg != null) {
+            pkg.setEstado(estado);
+            pkg.setUbicacion(ubicacion);
+        }
+    }
+
+    public Paquete trackPaquete(String id) {
+        return paquetes.get(id);
+    }
+
+
+
 }

@@ -8,7 +8,7 @@ public class Paquete {
     public Paquete(String id) {
         this.id = id;
         this.estado = Estado.EN_TRANSITO;
-        this.ubicacion = "Almacén";
+        this.ubicacion = "En Ruta";
     }
 
     public String getId() {
